@@ -7,10 +7,16 @@ public class translation {
         String s = sc.next();
         String t = sc.next();
 
+        if (s.length() != t.length()) {
+            System.out.println("NO");
+            sc.close();
+            return;
+        }
+
         boolean isReverse = true;
 
         for (int i = 0; i < s.length(); i++) {
-            if (s.charAt(i) != t.charAt(s.length() - 1 - i)) {
+            if (s.charAt(i) != t.charAt(t.length() - 1 - i)) {
                 isReverse = false;
                 break;
             }
