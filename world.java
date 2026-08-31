@@ -6,16 +6,16 @@ public class world {
 
         int n = sc.nextInt();
 
-        long bestTime = Long.MAX_VALUE;
+        long bestRounds = Long.MAX_VALUE;
         int answer = 1;
 
         for (int i = 1; i <= n; i++) {
             long a = sc.nextLong();
 
-            long time = a * n + i;
+            long rounds = (a - i + n) / n;
 
-            if (time < bestTime) {
-                bestTime = time;
+            if (rounds < bestRounds) {
+                bestRounds = rounds;
                 answer = i;
             }
         }
