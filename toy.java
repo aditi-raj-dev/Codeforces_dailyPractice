@@ -1,4 +1,4 @@
-import java.util.*;
+import java.util.Scanner;
 
 public class toy {
 
@@ -8,35 +8,36 @@ public class toy {
 
         int n = sc.nextInt();
 
-        boolean[] broken = new boolean[n];
+        int[] goodCars = new int[n];
+        int count = 0;
 
         for (int i = 0; i < n; i++) {
+
+            boolean good = true;
 
             for (int j = 0; j < n; j++) {
 
                 int x = sc.nextInt();
 
-                if (x != 0) {
-                    broken[i] = true;
-                    broken[j] = true;
+                // 1 = car i turned over
+                // 3 = both cars turned over
+                if (x == 1 || x == 3) {
+                    good = false;
                 }
             }
-        }
 
-        int count = 0;
-
-        for (boolean b : broken) {
-            if (!b) {
-                count++;
+            if (good) {
+                goodCars[count++] = i + 1;
             }
         }
 
         System.out.println(count);
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < count; i++) {
+            System.out.print(goodCars[i]);
 
-            if (!broken[i]) {
-                System.out.print((i + 1) + " ");
+            if (i < count - 1) {
+                System.out.print(" ");
             }
         }
 
